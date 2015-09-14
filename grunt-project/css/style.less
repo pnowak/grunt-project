@@ -6,15 +6,6 @@
 @base: 10px;
 @relaway: 'Raleway', sans-serif;;
 
-.generate-columns(4);
-
-.generate-columns(@n, @i: 1) when (@i =< @n) {
-	.column-@{i} {
-	    width: (@i * 100% / @n);
-	}
-	.generate-columns(@n, (@i + 1));
-}
-
 .generate-header(5);
 
 .generate-header(@n, @i: 1) when (@i =< @n) {
@@ -33,36 +24,10 @@ body {
 	border: @base / 5 dashed @light-blue;
 }
 
-div {
+table {
     padding: @base;
 	margin: @base * 2;
 	.bordered;
-}
-
-p {
-	color: @nice-blue;
-}
-
-#header {
-	position: fixed;
-	.adress {
-        color: @red;
-	}
-}
-
-#footer {
-	background-color: @dark-green;
-}
-
-.right {
-	float: right;
-	position: relative;
-	margin-top: @base * 20;
-	height: @base * 60;
-}
-
-.clearfix {
-    clear: both;
 }
 
 ul {
