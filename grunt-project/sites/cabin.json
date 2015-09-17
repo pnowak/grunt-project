@@ -1,0 +1,16 @@
+{
+  "CSSPreprocessor": [
+    "Less"
+  ],
+  "templateEngine": [
+    "Jade"
+  ],
+  "gruntPagesConfig": {
+    "posts": {
+      "src": "posts",
+      "dest": "dist",
+      "layout": "src/layouts/post.jade",
+      "url": "posts/:title/"
+    }
+  }
+}
