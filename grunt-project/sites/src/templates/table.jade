@@ -1,0 +1,49 @@
+extends index
+
+block title 
+  title table site 
+
+block content
+  .row
+    .col-lg-12
+      h1
+        a(href='index.html') table by jade and materialize
+      block articles
+      - collection = []
+      - collection.push({title: 'Polacy gotowi na MŚ. Michał Kwiatkowski obroni tytuł?', author: 'Paweł Gadzała, rowery.org', date: 'Posted on 20.09.2015 11:13', image: 'images/mk.jpg', link: 'http://www.sport.pl/kolarstwo/1,64993,18856949,kolarstwo-polacy-gotowi-na-ms-michal-kwiatkowski-obroni-tytul.html#MT_3zdj', content: 'W niedzielę w amerykańskim Richmond rozpoczynają się mistrzostwa świata w kolarstwie szosowym. Tytułu w wyścigu ze startu wspólnego broni Michał Kwiatkowski, ale szans na dobre występy Polaków jest więcej. Analizuje je Paweł Gadzała z serwisu rowery.org. Richmond, stan Wirginia. Ponownie stan oblężenia. Tym razem nie jak w 1865 r., gdy dowodzone przez generała Granta wojska Unii rozbijały szyki generała Lee i Konfederatów, kończąc powoli wojnę domową. Tym razem dwustutysięczne miasto przeżywa najazd zawodowych kolarzy i miłośników ścigania na szosie. Po raz 82. w historii rozpoczynają się mistrzostwa świata w kolarstwie szosowym.'})
+        mixin articles(collection)
+  
+  .row
+    div(class="col s12")
+      table.responsive-table
+        thead
+          tr
+            th(data-field="id") Name
+            th(data-field="name") Item Name
+            th(data-field="price") Item Price
+
+        tbody
+          tr 
+            td Alvin
+            td Eclair
+            td $0.87
+          tr  
+            td Alan
+            td Jellybean
+            td $3.76 
+          tr
+            td Jonathan
+            td Lollipop
+            td $7.00
+          tr 
+            td Piotr
+            td Nowak
+            td $110.87
+          tr  
+            td Alicja
+            td Malinowska
+            td $333.76 
+          tr
+            td Jonathan
+            td Malolepszy
+            td $777.00

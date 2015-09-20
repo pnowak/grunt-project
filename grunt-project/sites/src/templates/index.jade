@@ -11,52 +11,38 @@ html.no-js
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    title jade starter site
+    block title 
+      title jade starter site
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width')
     link(rel='stylesheet', href='styles/materialize.min.css')
   body
-    include ./includes/navbar.jade
+    include includes/navbar.jade
+
+    include mixins/articles.jade
     
     .container
-      h1
-        a(href='index.html') starter site
       
       .row
         div(class="col s12 m7")
-          .card
-            .card-image
-              img(src="images/sample1.jpg")
-              span.card-title Card Title
-            .card-content
-              p I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.
-            .card-action
-              a(href="#") This is a link
+          block content
+            h1
+              a(href='index.html') starter site
+            .card
+              .card-image
+                img(src="images/sample1.jpg")
+                span.card-title Card Title
+              .card-content
+                p I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.
+              .card-action
+                a(href="#") This is a link
 
-
-      .row
-        div(class="col s12")
-          ul.collection
-            li(class="collection-item avatar")
-              img(src="images/yuna.jpg" alt="" class="circle")
-              span.title Title
-              p First Line
-              a(href="#!" class="secondary-content") i.material-icons grade
-            li(class="collection-item avatar")
-              img(src="images/yuna.jpg" alt="" class="circle")
-              span.title Title
-              p First Line
-              a(href="#!" class="secondary-content") p.material-icons
-            li(class="collection-item avatar")
-              i(class="material-icons circle green") chart
-              span.title Title
-              p First Line
-              a(href="#!" class="secondary-content") p.material-icons
-            li(class="collection-item avatar")
-              i(class="material-icons circle red") chart
-              span.title Title
-              p First Line
-              a(href="#!" class="secondary-content") span.material-icons
+            .row
+              .col-lg-8
+                block articles
+                - collection = []
+                - collection.push({title: 'Polacy gotowi na MŚ. Michał Kwiatkowski obroni tytuł?', author: 'Paweł Gadzała, rowery.org', date: 'Posted on 20.09.2015 11:13', image: 'images/mk.jpg', link: 'http://www.sport.pl/kolarstwo/1,64993,18856949,kolarstwo-polacy-gotowi-na-ms-michal-kwiatkowski-obroni-tytul.html#MT_3zdj', content: 'W niedzielę w amerykańskim Richmond rozpoczynają się mistrzostwa świata w kolarstwie szosowym. Tytułu w wyścigu ze startu wspólnego broni Michał Kwiatkowski, ale szans na dobre występy Polaków jest więcej. Analizuje je Paweł Gadzała z serwisu rowery.org. Richmond, stan Wirginia. Ponownie stan oblężenia. Tym razem nie jak w 1865 r., gdy dowodzone przez generała Granta wojska Unii rozbijały szyki generała Lee i Konfederatów, kończąc powoli wojnę domową. Tym razem dwustutysięczne miasto przeżywa najazd zawodowych kolarzy i miłośników ścigania na szosie. Po raz 82. w historii rozpoczynają się mistrzostwa świata w kolarstwie szosowym.'})
+                  mixin articles(collection)
       
-      include ./includes/footer.jade
+      include includes/footer.jade

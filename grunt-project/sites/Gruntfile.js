@@ -4,13 +4,11 @@ module.exports = function (grunt) {
     jade: {
         dist: {
             files: {
-                'dist/index.html':
-                'src/templates/index.jade',
-                'dist/blog.html':
-                'src/templates/blog.jade',
-                'dist/post.html':
-                'src/templates/post.jade'
-            }
+                'dist/index.html': 'src/templates/index.jade',
+                'dist/table.html': 'src/templates/table.jade',
+                'dist/form.html':'src/templates/form.jade',
+                'dist/collection.html':'src/templates/extends/collection.jade'
+            } 
         },
         server: {
             options: {

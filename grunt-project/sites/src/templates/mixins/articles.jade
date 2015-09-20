@@ -1,0 +1,8 @@
+mixin articles(collection)
+	each article in collection
+		h2.truncate #{article.title}
+		p | by #{article.author}
+		p | #{article.date}
+		p #{article.content}
+		a(href=article.link)
+			img(src=article.image)
